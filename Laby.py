@@ -44,8 +44,10 @@ class Stack:
         Raise Empty exception if the stack is empty.
         """
         if self.is_empty():
-            raise Empty('Stack is empty')
+            # raise Empty('Stack is empty')
+            return None
         return self._data.pop()     # remove last item from list
+
 
 class Laby(object):
     """Solve a maze using the solve() method."""
@@ -58,7 +60,9 @@ class Laby(object):
         self.laby = []
         self.start = ()
         self.end = ()
-        self.path = Stack()
+        self.path = Stack() # A stack to remember the path
+        self.isFound = False
+        self.pathList = [] # A list of tuples (int, int) which gives the exact path to go from box D to F(including).
 
         """Transform the labyrinth string to a 2-dimensional list,
         and confirm the starting point and finishing point if possible.
@@ -103,9 +107,13 @@ class Laby(object):
         """If the finishing point is found, get the Path and return True"""
         if self.laby[row][column] == END:
             # pop the path
+            #print((row, column))
+            self.path.push((row, column))
+            self.isFound = True
             return True
 
         """Set the point to be visited"""
+        self.path.push((row, column))
         self.laby[row][column] = TRIED
 
         """Try each direction in turn from the current point recursively"""
@@ -120,23 +128,57 @@ class Laby(object):
             # self.path.push(self.laby[row][column])
             """Set the current point to be PART_OF_PATH"""
             self.laby[row][column] = PART_OF_PATH
-            print((row, column))
+            #print((row, column))
         else:
             self.laby[row][column] = DEAD_END
 
-        return isFound
+        return isFound, ((1,2), (2,3), (1,2))
 
-    def solve(self, labString, dimension):
-        laby = Laby(labString, dimension)
+    def solve(self):
+        # pass
+        """Search from the starting point"""
         laby.searchFrom(self.start[0], self.start[1])
-        pass
 
+        """Transform the path from stack to a traversed list"""
+        list = self.stackToTList()
+
+        return self.isFound, list
+
+    """Transform the path stack to a traversed list"""
+    def stackToTList(self):
+        list = []
+
+        """Pop every item in the stack to a list"""
+        e = self.path.pop()
+        while e is not None:
+            list.append(e)
+            e = self.path.pop()
+
+        """Flip the list"""
+        l = len(list)
+        for i in range(l//2):
+            list[i], list[l-i-1] = list[l-i-1], list[i]
+
+        return list
+
+# labyStr = "#####D###0F#####"
+# dim = 4
 labyStr = "########D#000##000#0###0##F###000################"
 dim = 7
 laby = Laby(labyStr, dim)
 laby.show_laby()
-laby.solve(labyStr, dim)
-laby.show_laby()
+iFound, list = laby.solve()
+print(iFound)
+print(list)
+# print(iFound, list)
+#laby.show_laby()
+
+# laby.path.push((1,2))
+# laby.path.push((3,4))
+# laby.path.push((5,6))
+# laby.path.push((7,8))
+# list=laby.stackToTList()
+# print(list)
 
 # labyStr = "########0#000##000#0###0##F###000################"
 # dim = 7
