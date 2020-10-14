@@ -139,10 +139,12 @@ class Laby(object):
         """Search from the starting point"""
         laby.searchFrom(self.start[0], self.start[1])
 
-        """Transform the path from stack to a traversed list"""
-        list = self.stackToTList()
-
-        return self.isFound, list
+        if self.isFound:
+            """Transform the path from stack to a traversed list"""
+            list = self.stackToTList()
+            return self.isFound, list
+        else:
+            return self.isFound, []
 
     """Transform the path stack to a traversed list"""
     def stackToTList(self):
@@ -163,6 +165,10 @@ class Laby(object):
 
 # labyStr = "#####D###0F#####"
 # dim = 4
+# labyStr = "######D#0##000###0F######"
+# dim = 5
+# labyStr = "#######D#00##000####0#F###000#######"
+# dim = 6
 labyStr = "########D#000##000#0###0##F###000################"
 dim = 7
 laby = Laby(labyStr, dim)
