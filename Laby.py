@@ -1,15 +1,5 @@
 # zhimingzeng_laurasanchezfernandez
 
-# Version 2.0
-# Version 1.8
-# Versopm 1.7
-# Version 1.6
-# Version 1.5
-# Versopm 1.4
-# Version 1.3
-# Vesrion 1.2
-# Version 1.1
-
 class Empty(Exception):
     """Error attempting to access an element from an empty container."""
     pass
@@ -69,7 +59,7 @@ class Laby(object):
             """Separate for dim lists"""
             list = []
             for i in range(self.dim):
-                """Separate each item in the current list"""
+                """Separate each item in the current list."""
                 c = self.strLaby[j * self.dim + i]  # Get the current item
                 if c == 'D':  # Check if it's the starting point
                     self.start = (j, i)
@@ -77,23 +67,39 @@ class Laby(object):
                     self.end = (j, i)
                 list.append(c)  # Get the current list and append it to the final 2-dimensional list
             self.laby.append(list)  # Get the whole two dimensional list
-        # self._maze = maze
+
+        """Check if the starting point exists"""
+        if self.start == ():
+            raise Empty("There is no starting point")
+
+        """Check if the finishing point exists"""
+        if self.end == ():
+            raise Empty("There is no finishing point")
 
     def show_laby(self):
         for list in self.laby:
             for item in list:
                 print(item, end=" ")
             print()
-        print("Starting point is {0}; finishing point is {1}".format(self.start, self.end))
+        print("Starting point: {0}, finishing point: {1}".format(self.start, self.end))
 
     def solve(self):
         pass
 
 labyStr = "########D#000##000#0###0##F###000################"
 dim = 7
-
 laby = Laby(labyStr, dim)
 laby.show_laby()
+
+# labyStr = "########0#000##000#0###0##F###000################"
+# dim = 7
+# laby = Laby(labyStr, dim)
+# laby.show_laby()
+
+# labyStr = "########D#000##000#0###0##0###000################"
+# dim = 7
+# laby = Laby(labyStr, dim)
+# laby.show_laby()
 
 # import datetime
 # a = datetime.datetime.now()
@@ -101,30 +107,3 @@ laby.show_laby()
 # delta = b - a
 # print(delta)
 
-# str = "#####D0###F#####"
-# str = "########D#000##000#0###0##F###000################"
-# maz = []
-# dim = 7
-# for j in range(dim):
-#     """Separate for dim lists"""
-#     list = []
-#     for i in range(dim):
-#         """Separate each item in the current list"""
-#         c = str[j*dim+i]    # Get the current item
-#         if c == 'D':        # Check if the starting point
-#             start = (j, i)
-#         elif c == 'F':      # Check if the finishing point
-#             end = (j, i)
-#         list.append(c)      # Get the current list and append it
-#     maz.append(list)        # Get the whole two dimensional list
-# for list in maz:
-#     # print(list)
-#     for item in list:
-#          print(item, end = " ")
-#     print()
-
-# maz[1][0] = '0'
-# print(end)
-# print(start)
-# print(maz[0][1])
-# print(start[0], start[1], end[0], end[1])
