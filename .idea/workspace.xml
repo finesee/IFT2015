@@ -29,7 +29,7 @@
       <recent name="D:\Python\IFT2015\TP1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Laby">
+  <component name="RunManager" selected="Python.PostToIn">
     <configuration name="Laby" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TP1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -116,8 +116,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Laby" />
         <item itemvalue="Python.PostToIn" />
+        <item itemvalue="Python.Laby" />
         <item itemvalue="Python.maze_test" />
       </list>
     </recent_temporary>
@@ -180,7 +180,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Laby.py</url>
-          <line>60</line>
+          <line>62</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

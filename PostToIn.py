@@ -1,5 +1,7 @@
 # zhimingzeng_laurasanchezfernandez
 
+# Version 1.0
+
 class Empty(Exception):
     """Error attempting to access an element from an empty container."""
     pass
