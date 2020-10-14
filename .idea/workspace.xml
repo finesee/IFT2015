@@ -29,7 +29,7 @@
       <recent name="D:\Python\IFT2015\TP1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.PostToIn">
+  <component name="RunManager" selected="Python.Laby">
     <configuration name="Laby" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TP1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -116,8 +116,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.PostToIn" />
         <item itemvalue="Python.Laby" />
+        <item itemvalue="Python.PostToIn" />
         <item itemvalue="Python.maze_test" />
       </list>
     </recent_temporary>
@@ -138,41 +138,52 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1245" y="260" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601853869581" />
-    <state width="919" height="150" key="GridCell.Tab.0.bottom" timestamp="1602614272110">
+    <state width="919" height="229" key="GridCell.Tab.0.bottom" timestamp="1602616740407">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="919" height="150" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602614272110" />
-    <state width="919" height="150" key="GridCell.Tab.0.center" timestamp="1602614272110">
+    <state width="919" height="229" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602616740407" />
+    <state width="919" height="229" key="GridCell.Tab.0.center" timestamp="1602616740407">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="919" height="150" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602614272110" />
-    <state width="919" height="150" key="GridCell.Tab.0.left" timestamp="1602614272110">
+    <state width="919" height="229" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602616740407" />
+    <state width="919" height="229" key="GridCell.Tab.0.left" timestamp="1602616740407">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="919" height="150" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602614272110" />
-    <state width="919" height="150" key="GridCell.Tab.0.right" timestamp="1602614272110">
+    <state width="919" height="229" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602616740407" />
+    <state width="919" height="229" key="GridCell.Tab.0.right" timestamp="1602616740407">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="919" height="150" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602614272110" />
-    <state width="812" height="414" key="GridCell.Tab.1.bottom" timestamp="1601872358197">
+    <state width="919" height="229" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602616740407" />
+    <state width="919" height="434" key="GridCell.Tab.1.bottom" timestamp="1602616572475">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="812" height="414" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601872358197" />
-    <state width="812" height="414" key="GridCell.Tab.1.center" timestamp="1601872358197">
+    <state width="919" height="434" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602616572475" />
+    <state width="919" height="434" key="GridCell.Tab.1.center" timestamp="1602616572475">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="812" height="414" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601872358197" />
-    <state width="812" height="414" key="GridCell.Tab.1.left" timestamp="1601872358197">
+    <state width="919" height="434" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602616572475" />
+    <state width="919" height="434" key="GridCell.Tab.1.left" timestamp="1602616572475">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="812" height="414" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601872358197" />
-    <state width="812" height="414" key="GridCell.Tab.1.right" timestamp="1601872358197">
+    <state width="919" height="434" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602616572475" />
+    <state width="919" height="434" key="GridCell.Tab.1.right" timestamp="1602616572475">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="812" height="414" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601872358197" />
+    <state width="919" height="434" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602616572475" />
     <state x="922" y="150" key="SettingsEditor" timestamp="1601854458840">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="922" y="150" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1601854458840" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Laby.py</url>
+          <line>60</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

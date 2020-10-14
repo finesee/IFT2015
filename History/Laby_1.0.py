@@ -1,5 +1,6 @@
 # zhimingzeng_laurasanchezfernandez
-
+#test
+#test V2
 class Empty(Exception):
     """Error attempting to access an element from an empty container."""
     pass
@@ -42,35 +43,37 @@ class Stack:
 
 class Laby(object):
     """Solve a maze using the solve() method."""
-    def __init__(self, LABYRINTHE, DIMENSION):
+    def __init__(self, lab, dim):
         """Initialize the labyrinth object."""
-        if len(LABYRINTHE) != DIMENSION * DIMENSION:
+        if len(lab) != dim * dim:
             raise ValueError("lab's length doesn't equal dim^2 !")
-        self.strLaby = LABYRINTHE
-        self.dim = DIMENSION
-        self.laby = []
+        self._lab = lab
+        self._dim = dim
+        self._maze = []
         self.start = ()
         self.end = ()
 
+    def init_maze(self):
         """Transform the labyrinth string to a 2-dimensional list,
+
         and confirm the starting point and finishing point if possible.
         """
-        for j in range(self.dim):
+        for j in range(self._dim):
             """Separate for dim lists"""
             list = []
-            for i in range(self.dim):
+            for i in range(self._dim):
                 """Separate each item in the current list"""
-                c = self.strLaby[j * self.dim + i]  # Get the current item
+                c = self._lab[j * self._dim + i]  # Get the current item
                 if c == 'D':  # Check if it's the starting point
                     self.start = (j, i)
                 elif c == 'F':  # Check if it's the finishing point
                     self.end = (j, i)
                 list.append(c)  # Get the current list and append it to the final 2-dimensional list
-            self.laby.append(list)  # Get the whole two dimensional list
+            self._maze.append(list)  # Get the whole two dimensional list
         # self._maze = maze
 
-    def show_laby(self):
-        for list in self.laby:
+    def show_maze(self):
+        for list in self._maze:
             for item in list:
                 print(item, end=" ")
             print()
@@ -79,11 +82,13 @@ class Laby(object):
     def solve(self):
         pass
 
-labyStr = "########D#000##000#0###0##F###000################"
+lab = "########D#000##000#0###0##F###000################"
 dim = 7
 
-laby = Laby(labyStr, dim)
-laby.show_laby()
+laby = Laby(lab, dim)
+laby.show_maze()
+laby.init_maze()
+laby.show_maze()
 
 # import datetime
 # a = datetime.datetime.now()
