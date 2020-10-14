@@ -1,5 +1,12 @@
 # zhimingzeng_laurasanchezfernandez
 
+TRIED = '.'
+OBSTACLE = '#'
+DEAD_END = 'X'
+PART_OF_PATH = '*'
+START = 'D'
+END = 'F'
+
 class Empty(Exception):
     """Error attempting to access an element from an empty container."""
     pass
@@ -51,6 +58,7 @@ class Laby(object):
         self.laby = []
         self.start = ()
         self.end = ()
+        self.path = Stack()
 
         """Transform the labyrinth string to a 2-dimensional list,
         and confirm the starting point and finishing point if possible.
@@ -83,12 +91,51 @@ class Laby(object):
             print()
         print("Starting point: {0}, finishing point: {1}".format(self.start, self.end))
 
-    def solve(self):
+    """Search in the labyrinth recursively to find if the possible path to the end exists"""
+    def searchFrom(self, row, column):
+
+        """If run into an obstacle, return False"""
+        if self.laby[row][column] == OBSTACLE: # obstacle
+            return False
+        """If the point has been visited, return False"""
+        if self.laby[row][column] == TRIED:
+            return False
+        """If the finishing point is found, get the Path and return True"""
+        if self.laby[row][column] == END:
+            # pop the path
+            return True
+
+        """Set the point to be visited"""
+        self.laby[row][column] = TRIED
+
+        """Try each direction in turn from the current point recursively"""
+        isFound = self.searchFrom(row-1, column) or \
+                  self.searchFrom(row+1, column) or \
+                  self.searchFrom(row, column-1) or \
+                  self.searchFrom(row, column+1)
+
+        """If found"""
+        if isFound:
+            """Push the current point to the path stack"""
+            # self.path.push(self.laby[row][column])
+            """Set the current point to be PART_OF_PATH"""
+            self.laby[row][column] = PART_OF_PATH
+            print((row, column))
+        else:
+            self.laby[row][column] = DEAD_END
+
+        return isFound
+
+    def solve(self, labString, dimension):
+        laby = Laby(labString, dimension)
+        laby.searchFrom(self.start[0], self.start[1])
         pass
 
 labyStr = "########D#000##000#0###0##F###000################"
 dim = 7
 laby = Laby(labyStr, dim)
+laby.show_laby()
+laby.solve(labyStr, dim)
 laby.show_laby()
 
 # labyStr = "########0#000##000#0###0##F###000################"
@@ -106,4 +153,3 @@ laby.show_laby()
 # b = datetime.datetime.now()
 # delta = b - a
 # print(delta)
-
