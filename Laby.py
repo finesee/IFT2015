@@ -192,6 +192,10 @@ test(labyStr, dim)
 # dim = 10
 # test(labyStr, dim)
 
+# labyStr = "###########D#000##F##000#0#0####0#0##00###000000####0#########0#00#00###000##00#####0000############"
+# dim = 10
+# test(labyStr, dim)
+
 # laby.path.push((1,2))
 # laby.path.push((3,4))
 # laby.path.push((5,6))
