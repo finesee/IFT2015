@@ -137,7 +137,7 @@ class Laby(object):
     def solve(self):
         # pass
         """Search from the starting point"""
-        laby.searchFrom(self.start[0], self.start[1])
+        self.searchFrom(self.start[0], self.start[1])
 
         if self.isFound:
             """Transform the path from stack to a traversed list"""
@@ -163,21 +163,34 @@ class Laby(object):
 
         return list
 
+
+
+def test(labyStr, dim):
+    laby = Laby(labyStr, dim)
+    laby.show_laby()
+    iFound, list = laby.solve()
+    print(iFound)
+    print(list)
+
 # labyStr = "#####D###0F#####"
 # dim = 4
-# labyStr = "######D#0##000###0F######"
-# dim = 5
+# test(labyStr, dim)
+
+labyStr = "######D#0##000###0F######"
+dim = 5
+test(labyStr, dim)
+
 # labyStr = "#######D#00##000####0#F###000#######"
 # dim = 6
-labyStr = "########D#000##000#0###0##F###000################"
-dim = 7
-laby = Laby(labyStr, dim)
-laby.show_laby()
-iFound, list = laby.solve()
-print(iFound)
-print(list)
-# print(iFound, list)
-#laby.show_laby()
+# test(labyStr, dim)
+#
+# labyStr = "########D#000##000#0###0##F###000################"
+# dim = 7
+# test(labyStr, dim)
+#
+# labyStr = "###########D#000#00##000#0#00###0#0##0F###000000####0#########0#00#00###000##00#####0000############"
+# dim = 10
+# test(labyStr, dim)
 
 # laby.path.push((1,2))
 # laby.path.push((3,4))
