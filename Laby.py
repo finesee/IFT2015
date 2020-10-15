@@ -1,5 +1,7 @@
 # zhimingzeng_laurasanchezfernandez
 
+import math
+
 TRIED = '.'
 OBSTACLE = '#'
 DEAD_END = 'X'
@@ -97,12 +99,11 @@ class Laby(object):
 
     """Search in the labyrinth recursively to find if the possible path to the end exists"""
     def searchFrom(self, row, column):
-
         """If run into an obstacle, return False"""
         if self.laby[row][column] == OBSTACLE: # obstacle
             return False
         """If the point has been visited, return False"""
-        if self.laby[row][column] == TRIED:
+        if self.laby[row][column] == TRIED or self.laby[row][column] == DEAD_END:
             return False
         """If the finishing point is found, get the Path and return True"""
         if self.laby[row][column] == END:
@@ -111,17 +112,14 @@ class Laby(object):
             self.path.push((row, column))
             self.isFound = True
             return True
-
         """Set the point to be visited"""
         self.path.push((row, column))
         self.laby[row][column] = TRIED
-
         """Try each direction in turn from the current point recursively"""
         isFound = self.searchFrom(row-1, column) or \
                   self.searchFrom(row+1, column) or \
                   self.searchFrom(row, column-1) or \
                   self.searchFrom(row, column+1)
-
         """If found"""
         if isFound:
             """Push the current point to the path stack"""
@@ -131,8 +129,7 @@ class Laby(object):
             #print((row, column))
         else:
             self.laby[row][column] = DEAD_END
-
-        return isFound, ((1,2), (2,3), (1,2))
+        return isFound
 
     def solve(self):
         # pass
@@ -144,7 +141,7 @@ class Laby(object):
             list = self.stackToTList()
             return self.isFound, list
         else:
-            return self.isFound, []
+            return self.isFound, None
 
     """Transform the path stack to a traversed list"""
     def stackToTList(self):
@@ -172,29 +169,29 @@ def test(labyStr, dim):
     print(iFound)
     print(list)
 
-# labyStr = "#####D###0F#####"
-# dim = 4
-# test(labyStr, dim)
-
-labyStr = "######D#0##000###0F######"
-dim = 5
+labyStr = "#####D###0F#####"
+dim = 4
 test(labyStr, dim)
 
-# labyStr = "#######D#00##000####0#F###000#######"
-# dim = 6
-# test(labyStr, dim)
-#
-# labyStr = "########D#000##000#0###0##F###000################"
-# dim = 7
-# test(labyStr, dim)
-#
-# labyStr = "###########D#000#00##000#0#00###0#0##0F###000000####0#########0#00#00###000##00#####0000############"
-# dim = 10
-# test(labyStr, dim)
+labyStr = "######D#0##000###0F######"
+# dim = 5
+test(labyStr, int(math.sqrt(len(labyStr))))
 
-# labyStr = "###########D#000##F##000#0#0####0#0##00###000000####0#########0#00#00###000##00#####0000############"
-# dim = 10
-# test(labyStr, dim)
+labyStr = "#######D#00##000####0#F###000#######"
+dim = 6
+test(labyStr, dim)
+#
+labyStr = "########D#000##000#0###0##F###000################"
+dim = 7
+test(labyStr, dim)
+
+labyStr = "###########D#000#00##000#0#00###0#0##0F###000000####0#########0#00#00###000##00#####0000############"
+dim = 10
+test(labyStr, dim)
+
+labyStr = "###########D#000##F##000#0#0####0#0##00###000000####0#########0#00#00###000##00#####0000############"
+dim = 10
+test(labyStr, dim)
 
 # laby.path.push((1,2))
 # laby.path.push((3,4))
