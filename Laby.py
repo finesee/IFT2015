@@ -55,8 +55,8 @@ class Laby(object):
     """Solve a maze using the solve() method."""
     def __init__(self, LABYRINTHE, DIMENSION):
         """Initialize the labyrinth object."""
-        if len(LABYRINTHE) != DIMENSION * DIMENSION:
-            raise ValueError("lab's length doesn't equal dim^2 !")
+        # if len(LABYRINTHE) != DIMENSION * DIMENSION:
+        #     raise ValueError("lab's length doesn't equal dim^2 !")
         self.strLaby = LABYRINTHE
         self.dim = DIMENSION
         self.laby = []
@@ -83,12 +83,12 @@ class Laby(object):
             self.laby.append(list)  # Get the whole two dimensional list
 
         """Check if the starting point exists"""
-        if self.start == ():
-            raise Empty("There is no starting point")
+        # if self.start == ():
+        #     raise Empty("There is no starting point")
 
         """Check if the finishing point exists"""
-        if self.end == ():
-            raise Empty("There is no finishing point")
+        # if self.end == ():
+        #     raise Empty("There is no finishing point")
 
     def show_laby(self):
         for list in self.laby:
@@ -107,27 +107,26 @@ class Laby(object):
             return False
         """If the finishing point is found, get the Path and return True"""
         if self.laby[row][column] == END:
-            # pop the path
-            #print((row, column))
             self.path.push((row, column))
             self.isFound = True
             return True
         """Set the point to be visited"""
-        self.path.push((row, column))
         self.laby[row][column] = TRIED
+        # self.path.push((row, column))
         """Try each direction in turn from the current point recursively"""
         isFound = self.searchFrom(row-1, column) or \
                   self.searchFrom(row+1, column) or \
                   self.searchFrom(row, column-1) or \
                   self.searchFrom(row, column+1)
-        """If found"""
+        """If found or not"""
         if isFound:
-            """Push the current point to the path stack"""
-            # self.path.push(self.laby[row][column])
-            """Set the current point to be PART_OF_PATH"""
-            self.laby[row][column] = PART_OF_PATH
-            #print((row, column))
+            """Push the current point to the path stack if found"""
+            self.path.push((row,column))
+            # """Set the current point to be PART_OF_PATH"""
+            # self.laby[row][column] = PART_OF_PATH
         else:
+            """Pop the current point from the path stack if not found"""
+            self.path.pop()
             self.laby[row][column] = DEAD_END
         return isFound
 
@@ -154,9 +153,9 @@ class Laby(object):
             e = self.path.pop()
 
         """Flip the list"""
-        l = len(list)
-        for i in range(l//2):
-            list[i], list[l-i-1] = list[l-i-1], list[i]
+        # l = len(list)
+        # for i in range(l//2):
+        #     list[i], list[l-i-1] = list[l-i-1], list[i]
 
         return list
 
@@ -169,29 +168,38 @@ def test(labyStr, dim):
     print(iFound)
     print(list)
 
-labyStr = "#####D###0F#####"
-dim = 4
-test(labyStr, dim)
+# labyStr = "#####D###0F#####"
+# dim = 4
+# test(labyStr, dim)
 
-labyStr = "######D#0##000###0F######"
+labyStr = "######D00##00####0F######"
 # dim = 5
 test(labyStr, int(math.sqrt(len(labyStr))))
 
-labyStr = "#######D#00##000####0#F###000#######"
-dim = 6
-test(labyStr, dim)
+# labyStr = "######D#0##000###0F######"
+# # dim = 5
+# test(labyStr, int(math.sqrt(len(labyStr))))
+
+# labyStr = "#######D#00##000####0#F###000#######"
+# dim = 6
+# test(labyStr, dim)
+# #
+# labyStr = "########D#000##000#0###0##F###000################"
+# dim = 7
+# test(labyStr, dim)
 #
-labyStr = "########D#000##000#0###0##F###000################"
-dim = 7
-test(labyStr, dim)
-
-labyStr = "###########D#000#00##000#0#00###0#0##0F###000000####0#########0#00#00###000##00#####0000############"
-dim = 10
-test(labyStr, dim)
-
-labyStr = "###########D#000##F##000#0#0####0#0##00###000000####0#########0#00#00###000##00#####0000############"
-dim = 10
-test(labyStr, dim)
+#
+# labyStr = "###########D#000#F0##000#0#00###0#0##00###000000####0#########0#00#00###000##00#####0000############"
+# dim = 10
+# test(labyStr, dim)
+# #
+# labyStr = "###########D#000#00##000#0#00###0#0##0F###000000####0#########0#00#00###000##00#####0000############"
+# dim = 10
+# test(labyStr, dim)
+# #
+# labyStr = "###########D#000##F##000#0#0####0#0##00###000000####0#########0#00#00###000##00#####0000############"
+# dim = 10
+# test(labyStr, dim)
 
 # laby.path.push((1,2))
 # laby.path.push((3,4))
@@ -199,16 +207,6 @@ test(labyStr, dim)
 # laby.path.push((7,8))
 # list=laby.stackToTList()
 # print(list)
-
-# labyStr = "########0#000##000#0###0##F###000################"
-# dim = 7
-# laby = Laby(labyStr, dim)
-# laby.show_laby()
-
-# labyStr = "########D#000##000#0###0##0###000################"
-# dim = 7
-# laby = Laby(labyStr, dim)
-# laby.show_laby()
 
 # import datetime
 # a = datetime.datetime.now()
