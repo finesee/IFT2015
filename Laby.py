@@ -1,7 +1,5 @@
 # zhimingzeng_laurasanchezfernandez
 
-import math
-
 TRIED = '.'
 OBSTACLE = '#'
 DEAD_END = 'X'
@@ -30,14 +28,6 @@ class Stack:
         """Add element e to the top of the stack"""
         self._data.append(e)            # new item stored at the end of list
 
-    # def top(self):
-    #     """Return (but do not remove) the element at the top of the stack
-    #     Raise Empty Exception if the stack is empty
-    #     """
-    #     # if self.is_empty():
-    #     #     raise Empty('Stack is empty')
-    #     return self._data[-1]       # the last item in the list
-
     def pop(self):
         """Remove and return the element from the top of the stack (i.e., LIFO).
         Raise Empty exception if the stack is empty.
@@ -46,7 +36,6 @@ class Stack:
             # raise Empty('Stack is empty')
             return None
         return self._data.pop()     # remove last item from list
-
 
 class Laby(object):
     """Solve a maze using the solve() method."""
@@ -151,13 +140,13 @@ class Laby(object):
 
 
 
-def test(labyStr, dim):
-    laby = Laby(labyStr, dim)
-    laby.show_laby()
-    iFound, list = laby.solve()
-    print(iFound)
-    print(list)
-
+# def test(labyStr, dim):
+#     laby = Laby(labyStr, dim)
+#     laby.show_laby()
+#     iFound, list = laby.solve()
+#     print(iFound)
+#     print(list)
+# #
 # labyStr = "#####D####F#####"
 # dim = 4 # Fail
 # test(labyStr, dim)
@@ -167,12 +156,12 @@ def test(labyStr, dim):
 # test(labyStr, dim)
 #
 #
-labyStr = "######D00##00####0F######"
-# dim = 5 # True, Dead_End
-test(labyStr, int(math.sqrt(len(labyStr))))
+# labyStr = "######D00##00####0F######"
+# # dim = 5 # True, Dead_End
+# # test(labyStr, int(math.sqrt(len(labyStr))))
 # labyStr = "######D#0##000###0F######"
 # # dim = 5 # Ture, Straightforward
-# test(labyStr, int(math.sqrt(len(labyStr))))
+# # test(labyStr, int(math.sqrt(len(labyStr))))
 #
 # labyStr = "#######D#00##000####0#F###000#######"
 # dim = 6
@@ -202,16 +191,3 @@ test(labyStr, int(math.sqrt(len(labyStr))))
 # labyStr = "#####################D#000#00##0#000#00##000#0#00##000#0#00###0#0##00###0#0##00###000000####000000####0#########0#########0#00#000000#00#00###000##00###000##00#####0000######0000#######0###################0###############0#000#00##0#000#00##000#0#00#0000#0#00###0#0##0000#0#0##00###000000####000000####0######F##0#########0#00#00###0#00#00###000##00###000##00#####0000######0000######################"
 # dim = 20 # Fail
 # test(labyStr, dim)
-
-# laby.path.push((1,2))
-# laby.path.push((3,4))
-# laby.path.push((5,6))
-# laby.path.push((7,8))
-# list=laby.stackToTList()
-# print(list)
-
-# import datetime
-# a = datetime.datetime.now()
-# b = datetime.datetime.now()
-# delta = b - a
-# print(delta)
