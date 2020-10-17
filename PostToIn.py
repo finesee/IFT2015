@@ -77,12 +77,12 @@ def postfixToInfix(exp):
             stack.push(c + operator)
     return stack.pop()
 
-exp = "9 √ 3 ="
-print(postfixToInfix(exp))
-exp = "15 7 1 1 + - / 3 * 2 1 1 + + -"
-print(postfixToInfix(exp))
-exp = "n ! n 1 + ! <"
-print(postfixToInfix(exp))
+# exp = "9 √ 3 ="
+# print(postfixToInfix(exp))
+# exp = "15 7 1 1 + - / 3 * 2 1 1 + + -"
+# print(postfixToInfix(exp))
+# exp = "n ! n 1 + ! <"
+# print(postfixToInfix(exp))
 
 
 
